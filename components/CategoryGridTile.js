@@ -24,7 +24,6 @@ export default props => {
 
 const styles = StyleSheet.create({
   container: {
-    // overflow: 'hidden',
     borderRadius: 10,
     shadowColor: 'black',
     shadowOpacity: 0.26,
