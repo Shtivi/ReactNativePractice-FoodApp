@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-import { MEALS } from '../data/dummy-data'
+import { StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import MealItem from '../components/MealItem';
+import { MEALS } from '../data/dummy-data';
+
 
 const CategoryMealsScreen = props => {
   const category = props.navigation.getParam('category');
