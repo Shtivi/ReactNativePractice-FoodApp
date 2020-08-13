@@ -6,33 +6,43 @@ export default props => {
   const { title, color, onSelect } = props;
 
   return (
-    <TouchableFeedback
-      style={{ backgroundColor: color, ...styles.container }}
-      onPress={onSelect}
-    >
-      <View style={styles.tile}>
-        <Text style={styles.title}>
-          {title}
-        </Text>
+    <View style={styles.container}>
+      <View style={styles.feedbackContainer}>
+        <TouchableFeedback
+          style={{ backgroundColor: color, ...styles.tile }}
+          onPress={onSelect}>
+          <View style={styles.textContainer}>
+            <Text style={styles.title} numberOfLines={2}>
+              {title}
+            </Text>
+          </View>
+        </TouchableFeedback>
       </View>
-    </TouchableFeedback>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    // overflow: 'hidden',
+    borderRadius: 10,
     shadowColor: 'black',
     shadowOpacity: 0.26,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 3,
     elevation: 6,
+  },
+  feedbackContainer: {
+    borderRadius: 10, 
+    overflow: 'hidden'
+  },
+  tile: {
     padding: 10,
     borderRadius: 10,
     height: 150,
     flex: 1,
-    margin: 10,
   },
-  tile: {
+  textContainer: {
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',

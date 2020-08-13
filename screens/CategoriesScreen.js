@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   gridItem: {
-    flex: 1
+    flex: 1,
+    padding: 10
   }
 })
 
