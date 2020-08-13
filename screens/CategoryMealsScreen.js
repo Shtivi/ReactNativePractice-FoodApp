@@ -7,8 +7,16 @@ import MealItem from '../components/MealItem';
 
 const CategoryMealsScreen = props => {
   const category = props.navigation.getParam('category');
-
   const displayedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(category.id) != -1)
+
+  const mealSelectionHandler = meal => {
+    props.navigation.navigate({
+      routeName: 'MealDetails',
+      params: {
+        meal
+      }
+    })
+  }
 
   return (
     <FlatList
@@ -20,7 +28,7 @@ const CategoryMealsScreen = props => {
           complexity={itemData.item.complexity}
           affordability={itemData.item.affordability}
           imageUrl={itemData.item.imageUrl}
-          onSelect={() => { }}
+          onSelect={() => mealSelectionHandler(itemData.item)}
         />
       )}>
 
