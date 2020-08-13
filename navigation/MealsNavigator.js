@@ -1,10 +1,10 @@
 import { Platform } from 'react-native'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
+import Colors from '../constants/colors'
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryMealsScreen from '../screens/CategoryMealsScreen'
 import MealDetailsScreen from '../screens/MealDetailsScreen'
-import Colors from '../constants/colors'
 
 export default createAppContainer(createStackNavigator({
   Categories: CategoriesScreen,
@@ -15,6 +15,9 @@ export default createAppContainer(createStackNavigator({
     headerStyle: {
       backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'transparent',
     },
-    headerTintColor: Platform.OS === 'android' ? '#fff' : 'black'
-  }
+    headerTintColor: Platform.OS === 'android' ? '#fff' : 'black',
+    headerBackTitleVisible: false,
+    headerBackTitle: null
+  },
+  headerMode: 'screen',
 }))
