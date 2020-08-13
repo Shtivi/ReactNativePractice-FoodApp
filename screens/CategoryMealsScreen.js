@@ -1,12 +1,28 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default props => {
+const CategoryMealsScreen = props => { 
+  const category = props.navigation.getParam('category');
   return (
-    <View></View>
+    <View style={styles.screen}>
+      <Text>{JSON.stringify(category)}</Text>
+    </View>
   )
 }
 
+CategoryMealsScreen.navigationOptions = ({ navigation }) => {
+  const category = navigation.getParam('category');
+  return {
+    headerTitle: category.title
+  }
+}
+
 const styles = StyleSheet.create({
-  
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 })
+
+export default CategoryMealsScreen;
