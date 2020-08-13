@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import CategoryGridItem from '../components/CategoryGridItem'
+import CategoryGridTile from '../components/CategoryGridTile'
 import { CATEGORIES } from '../data/dummy-data'
 
 const CategoriesScreen = props => {
@@ -21,10 +21,11 @@ const CategoriesScreen = props => {
       numColumns={2}
       renderItem={(itemData) => (
         <View style={styles.gridItem}>
-          <CategoryGridItem
-            data={itemData.item}
-            onPress={handleCategoryPress} />
-        </View>
+          <CategoryGridTile
+            title={itemData.item.title}
+            color={itemData.item.color}
+            onSelect={() => handleCategoryPress(itemData.item)} />
+       </View>
       )}
     />
   )
@@ -42,12 +43,9 @@ const styles = StyleSheet.create({
   },
   categoriesGridList: {
     flexGrow: 1,
-
   },
   gridItem: {
-    flex: 1,
-    margin: 15,
-    height: 150,
+    flex: 1
   }
 })
 
