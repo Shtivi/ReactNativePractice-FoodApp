@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import MealItem from '../components/MealItem';
+import MealsList from '../components/MealsList';
 import { MEALS } from '../data/dummy-data';
-
 
 const CategoryMealsScreen = props => {
   const category = props.navigation.getParam('category');
@@ -19,20 +17,10 @@ const CategoryMealsScreen = props => {
   }
 
   return (
-    <FlatList
+    <MealsList 
       data={displayedMeals}
-      renderItem={itemData => (
-        <MealItem
-          title={itemData.item.title}
-          duration={itemData.item.duration}
-          complexity={itemData.item.complexity}
-          affordability={itemData.item.affordability}
-          imageUrl={itemData.item.imageUrl}
-          onSelect={() => mealSelectionHandler(itemData.item)}
-        />
-      )}>
-
-    </FlatList>
+      onSelect={mealSelectionHandler} 
+    />
   )
 }
 
