@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import CategoryGridTile from '../components/CategoryGridTile'
 import { CATEGORIES } from '../data/dummy-data'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import HeaderButton from '../components/HeaderButton'
 
 const CategoriesScreen = props => {
   const handleCategoryPress = category => {
@@ -25,15 +27,20 @@ const CategoriesScreen = props => {
             title={itemData.item.title}
             color={itemData.item.color}
             onSelect={() => handleCategoryPress(itemData.item)} />
-       </View>
+        </View>
       )}
     />
   )
 }
 
-CategoriesScreen.navigationOptions = {
+CategoriesScreen.navigationOptions = navData =>  ({
   headerTitle: 'Meal Categories',
-}
+  headerLeft: () => (
+    <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <Item title="Menu" iconName="ios-menu" onPress={() => navData.navigation.toggleDrawer()} />
+    </HeaderButtons>
+  )
+})
 
 const styles = StyleSheet.create({
   screen: {

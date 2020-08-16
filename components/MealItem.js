@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, Text, ImageBackground } from 'react-native'
+import { StyleSheet, View, ImageBackground, Text } from 'react-native'
 import TouchableFeedback from './TouchableFeedback'
+import DefaultText from '../components/DefaultText'
 
 export default props => {
   const { title, duration, complexity, affordability, imageUrl, onSelect } = props;
@@ -23,9 +24,9 @@ export default props => {
           </TouchableFeedback>
         </View>
         <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-          <Text>{duration}m</Text>
-          <Text>{complexity.toUpperCase()}</Text>
-          <Text>{affordability.toUpperCase()}</Text>
+          <DefaultText>{duration}m</DefaultText>
+          <DefaultText>{complexity.toUpperCase()}</DefaultText>
+          <DefaultText>{affordability.toUpperCase()}</DefaultText>
         </View>
       </View>
     </View>
