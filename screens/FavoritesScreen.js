@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import MealsList from '../components/MealsList'
-import { MEALS } from '../data/dummy-data';
+import { useSelector } from 'react-redux'
 
 export default props => {
-  const displayedMeals = MEALS.filter(m => m.id == 'm1' || m.id == 'm2');
+  const meals = useSelector(state => state.meals.favoriteMeals)
 
   const mealSelectionHandler = meal => {
     props.navigation.navigate({
@@ -19,7 +19,7 @@ export default props => {
     <MealsList 
       data={displayedMeals}
       onSelect={mealSelectionHandler}
-      />
+    />
   )
 }
 

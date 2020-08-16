@@ -3,11 +3,11 @@ import { StyleSheet, View, Image, Text, ScrollView } from 'react-native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
 import DefaultText from '../components/DefaultText'
-import { MEALS } from '../data/dummy-data';
+import { useSelector } from 'react-redux'
 
 const MealDetailsScreen = props => {
-  const mealId = props.navigation.getParam('mealId')
-  const selectedMeal = MEALS.find(meal => meal.id === mealId)
+  const selectedMeal = props.navigation.getParam('meal')
+  const meals = useSelector(state => state.meals.meals)
 
   return (
     <ScrollView>
@@ -36,7 +36,7 @@ const MealDetailsScreen = props => {
 }
 
 MealDetailsScreen.navigationOptions = ({ navigation }) => ({
-  headerTitle: MEALS.find(meal => meal.id === navigation.getParam('mealId')).title,
+  headerTitle: navigation.getParam('meal').title,
   headerRight: () => (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
       <Item
