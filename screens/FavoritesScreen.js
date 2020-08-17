@@ -17,7 +17,7 @@ export default props => {
 
   return (
     <MealsList 
-      data={displayedMeals}
+      data={meals}
       onSelect={mealSelectionHandler}
     />
   )

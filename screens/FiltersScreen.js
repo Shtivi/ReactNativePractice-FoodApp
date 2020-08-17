@@ -15,6 +15,7 @@ const FiltersScreen = props => {
     }
 
     console.log(appliedFilters)
+    console.log("filters are not really implemented...")
   }, [vegan])
 
   useEffect(() => {
@@ -66,7 +67,7 @@ FiltersScreen.navigationOptions = navData => ({
   ),
   headerRight: () => (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
-      <Item title="Save" iconName="ios-save" onPress={() => navData.navigation.getParam('save')()} />
+      <Item title="Save" onPress={() => navData.navigation.getParam('save')()} />
     </HeaderButtons>
 
   )
